@@ -39,6 +39,14 @@
                         <artifactId>sonar-maven-plugin</artifactId>
 			<version>3.0.2</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.codehaus.sonar/sonar-plugin-api -->
+		<dependency>
+		        <groupId>org.codehaus.sonar</groupId>
+		        <artifactId>sonar-plugin-api</artifactId>
+		        <version>5.0.1</version>
+		        <scope>provided</scope>
+		</dependency>
+
 	</dependencies>
 	<build>
 		<plugins>
