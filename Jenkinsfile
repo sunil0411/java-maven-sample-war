@@ -5,39 +5,31 @@ pipeline {
         stage('Hello') {
             steps {
                 echo 'Hello World'
-            }
-        }
-		stage('Clone Project') {
-            steps {
-               git 'https://github.com/shyampandu/java-maven-sample-war.git'		   
-			  
-            }
-        }
-		
-		stage('Build') {
-            steps {
-                sh "git --version"
-		test "man"
-				sh "java -version"
+		cleanWs()
 				
             }
         }
-		stage('Clean') {
+		stage('Checkout code') {
             steps {
-                sh "mvn clean"
-		 
+                git 'https://github.com/shyampandu/java-maven-sample-war.git'
             }
         }
-		stage('Compile') {
+		stage('clean') {
             steps {
-                sh "mvn compile"
+                sh 'mvn clean'
             }
         }
-		stage('Package') {
+        stage('compile') {
             steps {
-                sh "mvn package"
-		cleanWs()
+                sh 'mvn compile'
+            }
+        }
+		stage('package') {
+            steps {
+                sh 'mvn package'
             }
         }
     }
+	
 }
+
